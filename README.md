@@ -12,7 +12,7 @@ This work continues to be optimized.
 
 ### Hardware Platform
 -------------------------
-Phyitum 2000+, Kunpeng 920, ThunderX2, Raspberry Pi 4 Model B or other ARMv8-based processors.
+Intel Xeon gold 6252N or other x86-based processors with equipped with the AXV-512 SIMD extension.
 
 ### Compile and Install
 ----------------------
