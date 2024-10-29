@@ -2,7 +2,7 @@
 ----------------------
 Contact: Pengyu Wang (pengyu_wang@nudt.edu.cn)
 
-NDIRECT is a library for direct convolution on ARMv8-based processors, with a focus on providing high performance, high data reusability, and DL framework compatibility. It preserves the conventional `NCHW` data format, which is compatible with mainstream deep learning frameworks, such as Pytorch and MXNet. 
+NDIRECT2 is a library for direct convolution on x86-based processors, with a focus on providing high performance, high data reusability, and DL framework compatibility. It preserves the conventional `NCHW` data format, which is compatible with mainstream deep learning frameworks, such as Pytorch and MXNet. NDIRECT2 leverages the AVX-512 extension to implement direct convolution.
 
 This work continues to be optimized.
 ### Software Dependences
