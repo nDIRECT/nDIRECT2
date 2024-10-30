@@ -132,7 +132,7 @@ clean:
 	rm -f *.o *.a *.so
 ```
 ### Integrate with MXNet
-[mxnet/blob/master/src/operator/nn/convolution-inl.h](https://github.com/apache/mxnet/blob/master/src/operator/nn/convolution-inl.h)
+[the lines 307-349 mxnet/blob/master/src/operator/nn/convolution-inl.h](https://github.com/apache/mxnet/blob/master/src/operator/nn/convolution-inl.h#L307-L349)
 
 ### Note
 ----------------------
