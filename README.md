@@ -131,6 +131,8 @@ all: $(OBJS)
 clean:
 	rm -f *.o *.a *.so
 ```
+### Integrate with MXNet
+
 ### Note
 ----------------------
 NDIRECT2 adopts the traditional `NCHW` and `KCRS` data formats to store input and filter tensors. Therefore, you can integrate NDIRECT2 with DL frameworks for CNNs training and inference directly.
