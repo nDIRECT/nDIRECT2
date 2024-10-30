@@ -132,7 +132,8 @@ clean:
 	rm -f *.o *.a *.so
 ```
 ### Integrate with MXNet
-We need to change [the lines 307-349 of mxnet/blob/master/src/operator/nn/convolution-inl.h](https://github.com/apache/mxnet/blob/master/src/operator/nn/convolution-inl.h#L307-L349) to `NDIRECT_dnn_conv_fwd_exec(in_data[conv::kData].shape_[2], in_data[conv::kData].shape_[3],
+We need to change [the lines 307-349 of mxnet/blob/master/src/operator/nn/convolution-inl.h](https://github.com/apache/mxnet/blob/master/src/operator/nn/convolution-inl.h#L307-L349) to `NDIRECT_dnn_conv_fwd_exec(
+	in_data[conv::kData].shape_[2], in_data[conv::kData].shape_[3],
         num_, in_data[conv::kData].shape_[1], in_data[conv::kData].dptr<float>(),
         M, param_.kernel[0], param_.kernel[1], (float*)weight_3d[0].dptr_,
         param_.pad[0], param_.pad[1], param_.stride[0],(float*)output_4d[0].dptr_);`
