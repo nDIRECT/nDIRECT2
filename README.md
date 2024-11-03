@@ -92,7 +92,7 @@ int main()
     random_matrix(K, C * R * S, filter);
     random_matrix(C, N * H * W, input);
 	// warm up
-    NDIRECT_dnn_conv_fwd_exec(H, W, N , C, input, K, R, S, filter,
+    NDIRECT2_dnn_conv_fwd_exec(H, W, N , C, input, K, R, S, filter,
     padh, padw, stride, output);
     
     // evaluate
@@ -113,10 +113,10 @@ NDIRECT2_PREFIX = path to install NDIRECT2
 NDIRECT2_INC    = $(NDIRECT_PREFIX)/ND2/include
 NDIRECT2_LIB    = $(NDIRECT_PREFIX)/ND2/lib
 
-OTHER_LIBS  = -fopenmp
+OTHER_LIBS  = -fopenmp -mavx512f
 
 CC          = g++
-CFLAGS      = -g -fopenmp -mavx512f -O2 -I$(NDIRECT_INC) -L$(NDIRECT_LIB) -lnd2
+CFLAGS      = -g -fopenmp -mavx512f -O2 -I$(NDIRECT2_INC) -L$(NDIRECT2_LIB) -lnd2
 LINKER      = $(CC)
 
 OBJS        = test.o
