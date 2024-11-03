@@ -26,13 +26,13 @@ $ make install PREFIX= specify the installation path
 ```cs
 #include <stdio.h>
 #include <stdlib.h>
-#include "NDIRECT_direct.h"
+#include "NDIRECT2.h"
 ```
 ### API
 ----------------------
-We illustrate the convolution interface of NDIRECT.
+We illustrate the convolution interface of NDIRECT2.
 ```cs
-NDIRECT_dnn_conv_fwd_exec(int H, int W, int N, int C, float *input,
+NDIRECT2_dnn_conv_fwd_exec(int H, int W, int N, int C, float *input,
                                  int K, int R, int S, float *filter,
                                  int padh, int padw, int stride, float* output);
 ```
@@ -51,7 +51,7 @@ The following source code provides an instance  to evaluate the convolution perf
 ```cs
 #include <stdio.h>
 #include <stdlib.h>
-#include "NDIRECT_direct.h"
+#include "NDIRECT2.h"
 
 static double gtod_ref_time_sec = 0.0;
 double dclock()
@@ -98,7 +98,7 @@ int main()
     // evaluate
     start = dclock();
     for ( i = 0; i < loop ; i++)
-    	NDIRECT_dnn_conv_fwd_exec(H, W, N, C, input, K, R, S, filter, padh, padw, stride, output);
+    	NDIRECT2_dnn_conv_fwd_exec(H, W, N, C, input, K, R, S, filter, padh, padw, stride, output);
     cost = (dclock() - start) / loop;
 
     free(filter);
@@ -109,20 +109,20 @@ int main()
 ```
 The corresponding makefile for this program is:
 ```makefile
-NDIRECT_PREFIX = path to install NDIRECT
-NDIRECT_INC    = $(NDIRECT_PREFIX)/ND/include
-NDIRECT_LIB    = $(NDIRECT_PREFIX)/ND/lib
+NDIRECT2_PREFIX = path to install NDIRECT2
+NDIRECT2_INC    = $(NDIRECT_PREFIX)/ND2/include
+NDIRECT2_LIB    = $(NDIRECT_PREFIX)/ND2/lib
 
 OTHER_LIBS  = -fopenmp
 
 CC          = g++
-CFLAGS      = -g -fopenmp -O3 -I$(NDIRECT_INC) -L$(NDIRECT_LIB) -lnd
+CFLAGS      = -g -fopenmp -mavx512f -O2 -I$(NDIRECT_INC) -L$(NDIRECT_LIB) -lnd2
 LINKER      = $(CC)
 
 OBJS        = test.o
 
 %.o: %.c
-	 $(CC) $(CFLAGS) -c -fopenmp $< -o $@
+	 $(CC) $(CFLAGS) -c -fopenmp -mavx512f $< -o $@
 
 all: $(OBJS)
 	$(LINKER) $(OBJS) $(CFLAGS) $(OTHER_LIBS) -o a.out
@@ -132,7 +132,7 @@ clean:
 	rm -f *.o *.a *.so
 ```
 ### Integrate with MXNet
-We need to change [the lines 307-349 of mxnet/blob/master/src/operator/nn/convolution-inl.h](https://github.com/apache/mxnet/blob/master/src/operator/nn/convolution-inl.h#L307-L349) to `NDIRECT_dnn_conv_fwd_exec(
+We need to change [the lines 307-349 of mxnet/blob/master/src/operator/nn/convolution-inl.h](https://github.com/apache/mxnet/blob/master/src/operator/nn/convolution-inl.h#L307-L349) to `NDIRECT2_dnn_conv_fwd_exec(
 	in_data[conv::kData].shape_[2], in_data[conv::kData].shape_[3],
         num_, in_data[conv::kData].shape_[1], in_data[conv::kData].dptr<float>(),
         M, param_.kernel[0], param_.kernel[1], (float*)weight_3d[0].dptr_,
