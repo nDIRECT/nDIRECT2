@@ -45,6 +45,16 @@ $ make
 $ ./run.sh
 ```
 will evaluate the performance of convolution layers from ResNet-50 and VggNet-16.
+```bash
+$ cd Fuse/BF16/Conv+DWConv+Conv
+$ ./a.out
+```
+will evaluate the performance of fused Conv+DWConv+Conv.
+```bash
+$ cd Fuse/BF16/Conv+Conv+Conv
+$ ./b.out
+```
+will evaluate the performance of fused Conv+Conv+Conv.
 ### Getting Started
 ----------------------
 The following source code provides an instance  to evaluate the convolution performance.
