@@ -140,4 +140,4 @@ We need to change [the lines 307-349 of mxnet/blob/master/src/operator/nn/convol
 
 ### Note
 ----------------------
-NDIRECT2 adopts the traditional `NCHW` and `KCRS` data formats to store input and filter tensors. Therefore, you can integrate NDIRECT2 with DL frameworks for CNNs training and inference directly.
+NDIRECT2 adopts the traditional `NCHW/NHWC` and `KCRS` data formats to store input and filter tensors. Therefore, you can integrate NDIRECT2 with DL frameworks for CNNs training and inference directly.
