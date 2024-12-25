@@ -70,7 +70,7 @@ def conv2d_layer(N, H, W, CO, CI, KH, KW, stride, padding):
 # ^^^^^^^^^^^^^^^^^^^^^^
 # We then create a search task for the last convolution layer in the resnet.
 
-target = tvm.target.Target("llvm -mtriple=aarch64-linux-gnu -mattr=+neon")
+target = tvm.target.Target("llvm -mcpu=skylake-avx512")
 
 print("Target:")
 print(target)
