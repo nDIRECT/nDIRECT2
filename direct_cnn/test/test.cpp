@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 
 			printf("NDIRECT:  C = %d K= %d H=%d W=%d R = %d S = %d stride = %d padh = %d padw = %d \
 					Gflops = %lf effic= %.3lf %\n",
-			       C, K, H, W, R, S, stride, padh, padw,  ops / cost, ops / cost / 17.6 * 100 / NUM);
+			       C, K, H, W, R, S, stride, padh, padw,  ops / cost, ops / cost / 6144 * 100);
 
 			fprintf(fp, " %.3f", ops / cost);
 
