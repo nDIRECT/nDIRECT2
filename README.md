@@ -57,9 +57,10 @@ $ ./b.out
 will evaluate the performance of fused Conv+Conv+Conv.
 ```bash
 $ cd MXNet/
-$ python3 ./b.out
+$ export OMP_NUM_THREADS=48
+$ python3 mxnet_resnet50_48.py
 ```
-will evaluate the performance of CNN inference of ResNet-50 and VGG16.
+will evaluate the performance of CNN inference of ResNet-50.
 ```bash
 $ cd Ansor/model
 $ export TVM_NUM_THREADS=48
