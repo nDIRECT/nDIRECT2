@@ -26,7 +26,6 @@ using namespace std;
 //extern vector<int>vec;
 //extern int Tm, Tn;
 
-void NDIRECT2_flush();
 
 void transform2_filter_1x1(const int outch, const int inch, float* kernel, float* out_kernel);
 
@@ -45,8 +44,6 @@ void LIB2_R1_s2(int H, int W, int N, int C, float *input,
 
 void LIB2_R3_s1(int H, int W, int N, int C, float *input, 
             int K, int R, int S, float *filter, int padh, int padw, int stride, float* output);
-void LIB2_R3_s2(int H, int W, int N, int C, float *input, 
-    int K, int R, int S, float *filter, int padh, int padw, int stride, float* output);
 void LIB2_R7_s2(int H, int W, int N, int C, float *input, 
     int K, int R, int S, float *filter, int padh, int padw, int stride, float* output);
 
