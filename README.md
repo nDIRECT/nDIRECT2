@@ -62,12 +62,14 @@ $ python3 ./b.out
 will evaluate the performance of CNN inference of ResNet-50 and VGG16.
 ```bash
 $ cd Ansor/model
-$ python3 ./b.out
+$ export TVM_NUM_THREADS=48
+$ python3 tune_network_x86.py
 ```
 will autotune the performance of CNN model.
 ```bash
 $ cd Ansor/layer
-$ python3 ./b.out
+$ export TVM_NUM_THREADS=48
+$ python3 tune_layer_x86.py
 ```
 will autotune the performance of CNN layers.
 
