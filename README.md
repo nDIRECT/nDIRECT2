@@ -168,7 +168,7 @@ We need to change [the lines 307-349 of mxnet/blob/master/src/operator/nn/convol
         param_.pad[0], param_.pad[1], param_.stride[0],(float*)output_4d[0].dptr_);`
 
 ### Compared with CNN models/layers that autotuned by Ansor
-We utilize the ansor sub-module from TVM to autotune the ResNet and VGGNet varients. Also, we use ansor to autotune the direct convolution with different parameters. The implementation code can be accessed in nDIRECT2/Ansor.
+We utilize the ansor sub-module from TVM to autotune the ResNet and VGGNet varients. Also, we use ansor to autotune the direct convolution with different parameters. The implementation code can be accessed in [nDIRECT2/Ansor](https://github.com/nDIRECT/nDIRECT2/tree/main/Ansor) .
 
 ### Note
 ----------------------
