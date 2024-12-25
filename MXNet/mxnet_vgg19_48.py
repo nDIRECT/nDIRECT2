@@ -27,11 +27,11 @@ def transform(image):
 x=transform(image)
 array = mx.nd.array(x)
 
-x_temp = np.empty((64, 3, 224, 224))
+x_temp = np.empty((48, 3, 224, 224))
 
 x_new = mx.nd.array(x_temp) 
 
-for i in range(64):
+for i in range(48):
     x_new[i] = array
 
 #print("array:", array)
@@ -45,7 +45,7 @@ ctx = mx.cpu()
 sym, arg_params, aux_params = mx.model.load_checkpoint('vgg19', 0) 
 
 mod = mx.mod.Module(symbol=sym, context=mx.cpu(), label_names=None)
-mod.bind(for_training=False, data_shapes=[('data', (64,3,224,224))], 
+mod.bind(for_training=False, data_shapes=[('data', (48,3,224,224))], 
          label_shapes=mod._label_shapes)
 mod.set_params(arg_params, aux_params, allow_missing=True)
 #run the model
