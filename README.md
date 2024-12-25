@@ -55,6 +55,22 @@ $ cd Fuse/BF16/Conv+Conv+Conv
 $ ./b.out
 ```
 will evaluate the performance of fused Conv+Conv+Conv.
+```bash
+$ cd MXNet/
+$ python3 ./b.out
+```
+will evaluate the performance of CNN inference of ResNet-50 and VGG16.
+```bash
+$ cd Ansor/model
+$ python3 ./b.out
+```
+will autotune the performance of CNN model.
+```bash
+$ cd Ansor/layer
+$ python3 ./b.out
+```
+will autotune the performance of CNN layers.
+
 ### Getting Started
 ----------------------
 The following source code provides an instance  to evaluate the convolution performance.
