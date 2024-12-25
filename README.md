@@ -69,9 +69,9 @@ will autotune the performance of CNN model.
 ```bash
 $ cd Ansor/layer
 $ export TVM_NUM_THREADS=48
-$ python3 tune_layer_x86.py
+$ python3 tune_conv2d_layer_cpu.py
 ```
-will autotune the performance of CNN layers.
+will autotune the direct convolution performance of CNN layers.
 
 ### Getting Started
 ----------------------
